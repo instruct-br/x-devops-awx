@@ -1,0 +1,38 @@
+---
+- hosts: all
+  become: yes
+  gather_facts: yes
+
+  tasks:
+    - name: Instalando o pacote apache2 nos servidores Debian-Like
+      apt:
+        name: apache2
+        state: present
+      when: 'ansible_distribution == "Ubuntu"'
+      tags: install_apache_ubuntu
+
+    - name: Instalando o pacote httpd nos servidores Centos
+      yum:
+        name: httpd
+        state: present
+      when: 'ansible_distribution == "CentOS"'
+      tags: install_apache_centos
+
+    - name: Inicializar serviço apache
+      service:
+        name: apache2
+        state: started
+        enabled: yes
+      when: 'ansible_distribution == "Ubuntu"'
+
+    - name: Inicializar serviço apache
+      service:
+        name: httpd
+        state: started
+        enabled: yes
+      when: 'ansible_distribution == "CentOS"'
+
+    - name: Disable SELinux
+      selinux:
+        state: disabled
+      when: 'ansible_distribution == "CentOS"'
