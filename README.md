@@ -9,8 +9,17 @@ Colaboradores:
 O Ansible é uma ferramenta de automação, que permite automatizar tarefas de gerenciamento e configuração de servidores, aplicativos e infraestrutura de rede. O Ansible usa arquivos chamados playbooks e inventário.
 
 ### Playbooks:
+Exemplo de um playbook em YAML:
 
+![Playbook](images/playbook_exemplo.png "Exemplo de um playbook em YAML")
+
+Exemplo de um inventário em YAML:
+
+![Inventario](images/inventario_exemplo.png "Exemplo de um inventário em YAML")
 Playbook é um arquivo YAML que contém uma série de tarefas e instruções de como um sistema deve ser configurado e gerenciado, incluindo as configurações do sistema operacional, instalação de pacotes, criação de usuários, configurações de serviços e etc.
+# Fluxograma da ferramenta
+
+![Fluxograma AWX](images/awx_fluxograma.png "Fluxograma da ferramenta AWX")
 
 ### Inventários:
 
