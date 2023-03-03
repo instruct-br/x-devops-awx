@@ -1,5 +1,8 @@
-# School of DevOps - AWX-XdevOps:
+# School of DevOps - AWX:
 
+Colaboradores:
+- Gabriel Vieira Andrian
+- Ian Sandes
 
 # O que é o Ansible:
 
