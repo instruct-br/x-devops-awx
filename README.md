@@ -56,3 +56,64 @@ Para demonstrar o uso do Ansible AWX, vamos seguir os seguintes passos:
 - O AWX requer conhecimento técnico em Ansible e infraestrutura de rede para instalação, configuração e uso efetivo.
 - A implementação do AWX pode ser complexa e requer um ambiente bem configurado para funcionar corretamente.
 
+# Rodando a aplicação localmente
+
+Para executar a aplicação AWX Ansible localmente, é necessário ter as seguintes ferramentas instaladas em sua máquina:
+
+- [Docker](https://docs.docker.com/get-started/)
+- [Docker-compose](https://docs.docker.com/compose/)
+- [Vagrant](https://developer.hashicorp.com/vagrant/docs)
+- [OpenSSH](https://www.openssh.com/)
+
+## Subindo o AWX Ansible em Docker
+Para subir a aplicação AWX Ansible em Docker, siga os seguintes passos da documentação AWX Ansible:
+
+[Ansible-AWX](https://github.com/ansible/awx/tree/devel/tools/docker-compose)
+
+Após a execução dos passos descrito no link a cima, a aplicação AWX Ansible estará disponível na URL:  
+`https://localhost:8043/#/login`.
+
+Subindo as máquinas no Vagrant
+Para subir as máquinas no Vagrant, siga os seguintes passos:
+
+Crie um arquivo Vagrantfile com o conteúdo abaixo:
+```yml
+Vagrant.configure("2") do |config|
+  config.vm.define "servidor1" do |servidor1|
+    servidor1.vm.box = "ubuntu/focal64"
+    servidor1.vm.network "private_network", ip: "192.168.33.10"
+  end
+
+  config.vm.define "servidor2" do |servidor2|
+    servidor2.vm.box = "ubuntu/focal64"
+    servidor2.vm.network "private_network", ip: "192.168.33.11"
+  end
+end
+```
+
+Execute o comando abaixo para subir as máquinas:
+```bash
+vagrant up
+```
+
+Após a execução desses passos, as máquinas estarão disponíveis nas URLs `192.168.33.10` e `192.168.33.11`.
+
+## Configurando as chaves SSH
+
+Para configurar as chaves SSH, siga os seguintes passos:
+
+Crie uma chave SSH na sua máquina local:
+```bash
+ssh-keygen -t rsa -b 4096 -C "seu-email@example.com"
+```
+
+Copie a chave pública para as máquinas:
+```bash
+ssh-copy-id -i ~/.ssh/id_rsa.pub usuario@192.168.33.10
+ssh-copy-id -i ~/.ssh/id_rsa.pub usuario@192.168.33.11
+```
+
+Após a execução desses passos, as chaves SSH estarão configuradas e você poderá acessar as máquinas utilizando o SSH.
+
+
+Agora você pode usar a interface do usuário do AWX Ansible para vincular credenciais, projetos, inventários, hosts, templates, jobs e workflows.
