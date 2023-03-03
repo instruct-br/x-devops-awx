@@ -9,26 +9,26 @@ Colaboradores:
 O Ansible é uma ferramenta de automação, que permite automatizar tarefas de gerenciamento e configuração de servidores, aplicativos e infraestrutura de rede. O Ansible usa arquivos chamados playbooks e inventário.
 
 ### Playbooks:
+
+Playbook é um arquivo YAML que contém uma série de tarefas e instruções de como um sistema deve ser configurado e gerenciado, incluindo as configurações do sistema operacional, instalação de pacotes, criação de usuários, configurações de serviços e etc.
+
 Exemplo de um playbook em YAML:
 
 ![Playbook](images/playbook_exemplo.png "Exemplo de um playbook em YAML")
-
-Exemplo de um inventário em YAML:
-
-![Inventario](images/inventario_exemplo.png "Exemplo de um inventário em YAML")
-Playbook é um arquivo YAML que contém uma série de tarefas e instruções de como um sistema deve ser configurado e gerenciado, incluindo as configurações do sistema operacional, instalação de pacotes, criação de usuários, configurações de serviços e etc.
-# Fluxograma da ferramenta
-
-![Fluxograma AWX](images/awx_fluxograma.png "Fluxograma da ferramenta AWX")
-
 ### Inventários:
 
 O inventário é um arquivo que lista os hosts ou servidores que serão gerenciados pelo Ansible. Ele é utilizado para especificar as informações de conexão, como endereço de IP, nome do host, porta SSH e outros parâmetros de conexão necessários para se conectar e gerenciar o servidor. O Ansible utiliza o inventário para saber em quais servidores executar os playbooks.
 
+Exemplo de um inventário em YAML:
+
+![Inventario](images/inventario_exemplo.png "Exemplo de um inventário em YAML")
 # AWX:
 
 O AWX (Ansible Web eXperience) é uma plataforma de automação de infraestrutura de código aberto baseada em Ansible, fornece uma interface gráfica do usuário (GUI) moderna, intuitiva e um conjunto de APIs para gerenciar e automatizar. Ele permite o gerenciamento centralizado inventários, credenciais, tasks e Ansible Playbooks.
 
+# Fluxograma da ferramenta
+
+![Fluxograma AWX](images/awx_fluxograma.png "Fluxograma da ferramenta AWX")
 ### Qual problema a ferramenta resolve?
 
 O AWX resolve o problema de gerenciar a configuração e implantação de servidores e aplicativos de forma repetitiva, com pouca intervenção manual.
@@ -43,14 +43,18 @@ Possui uma interface gráfica do usuário (GUI) moderna e intuitiva.
 Permite o gerenciamento centralizado de tarefas e a automatização de processos de implantação.
 Conecta-se aos hosts (sistemas remotos) usando SSH e executa tarefas neles, como a instalação de pacotes, a configuração de arquivos de configuração e a execução de comandos.
 
-# Demo
+# Demonstração do Ansible AWX
+Para demonstrar o uso do Ansible AWX, seguiremos os seguintes passos:
 
-Para demonstrar o uso do Ansible AWX, vamos seguir os seguintes passos:
-
-- Subir as VMS.
-- Localizar os IPs das VMS.
+- Subir as máquinas virtuais (VMs).
+- Localizar os endereços IP das VMs.
 - Inserir as chaves SSH nas VMs.
-- Executar playbooks do Galaxy Ansible.
+- Demonstrar o projeto sincronizado com os playbooks do repositório GitHub.
+- Mostrar as credenciais criadas.
+- Mostrar os hosts criados.
+- Mostrar o inventário criado.
+- Criar um template.
+- Executar um job.
 
 # Prós e Contras:
 
